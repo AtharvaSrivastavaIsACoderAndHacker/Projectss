@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,300&display=swap');
+*{
+      padding: 0;
+      margin: 0;
+}
+
+.text-center{
+      text-align: center;
+      font-weight: 500;
+}
+
+footer{
+      height: 12vh;
+      background-color: #2874f0;
+      color: #ffffff;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+header{
+      height: 68px;
+    background-color: #2874f0;
+    color: #ffffff;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.flex-all-center{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+}
+
+nav ul li{
+
+      list-style: none;
+      padding: 0 20px;
+}
+
+nav ul{
+      height: 64px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+}
+
+nav ul li a{
+      color: #ffffff;
+      text-decoration: none;
+      align-items: center;
+}
+nav ul li a:hover{
+      color: #a7c7ffc5;
+}
+
+
+
+nav{
+
+      display: flex;
+      position: sticky;
+      z-index: 10;	
+
+}
+
+.logo{
+
+      display: flex;
+      align-items: center;
+}
+
+.logo img{
+
+      width: 88px;
+      padding: 0 25px;
+}
+
+.container{
+
+      min-height: calc(150vh);
+}
+
+.search{
+
+      display: flex;
+      align-items: center;
+
+}
+
+.search input{
+      width: 470px;
+      height: 27px;
+      align-items: center;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.btn{
+      padding: 6px 10px;
+
+}
+
+.btn:hover{
+
+      color: #b5d1ff;
+      cursor: pointer;
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.slider{
+
+      margin-top: 12px;
+}
+
+.card{
+
+      max-width: 91vw;
+      margin: auto;
+}
+
+.card h2{
+
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      margin: 26px 0;
+
+}
+
+.p{
+
+      font-family: 'Yanone Kaffeesatz', sans-serif;
+      display: flex;
+      justify-content: center;
+}
+.card-items{
+
+      display: inline-flex;
+      flex-direction: column;
+      padding: 0 5px;
+      border-radius: 3px;
+}
+
+.card-2{
+
+      padding-top: 48px
+}
+
+.card img{
+
+      border-radius: 12px;
+}
+
+.card-2 img{
+
+      border-radius: 12px;
+}
+
+
+
+@media only screen and (max-width: 450px) {
+      body {
+        background-color: #75aaff
+      }
+      .card{
+            flex-direction: row;
+      }
+      .card-2{
+            flex-direction: row;
+      }
+      .logo img{
+            opacity: 0;
+      }
+      .nav ul li{
+            justify-content: center;
+      }
+      .header{
+            min-width: 100 vh;
+      }
+      .footer{
+            min-width: 100 vh;
+      }
+
+    }
