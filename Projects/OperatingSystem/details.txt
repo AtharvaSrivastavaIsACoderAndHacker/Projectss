@@ -1,2 +1,0 @@
-It's my try to create an Operating System Model
-Important --> It;s not real, it;s just a model that can control the pc.It does not mean that this model can be installed on your pc. It's just for the original installed os, thus, will be needing an os to run over
