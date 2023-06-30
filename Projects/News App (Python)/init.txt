@@ -1,2 +1,0 @@
-This Is A Python Based News App Using NewsAPI !
-I've Also Created The .exe File For The Same So If You Don't Have Python You Too Can Run The App !
