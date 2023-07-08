@@ -1,1 +1,1 @@
-tis is a qr code generator a I have an exe file so u can run it and also the corresponding .py code !
+tis is a qr code generator ! I have the .py code !
