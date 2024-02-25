@@ -3,5 +3,5 @@ In This Repository, You'll Find Various Projects Of Different Programming Langua
 I Have BEGINNER-to-INTERMEDIATE-to-ADVANCED Level Projects !
 
 ```
-print("Mast Aur Jabardast  Projects !")
+print("Mast Aur Jabardast Projects !")
 ```
