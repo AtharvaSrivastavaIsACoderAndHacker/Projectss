@@ -1,11 +1,14 @@
 import pyttsx3
 import time
 import speech_recognition as s
-import pyaudio
 from os import system
 import wikipedia
 import webbrowser
 from AppOpener import open
+import requests
+from bs4 import BeautifulSoup
+from tkinter import *
+from tkinter.ttk import *
 
 # --------------------------------------------------------------------
 
@@ -43,8 +46,7 @@ def takeCommand():
             print("Say That Again !")
             return "none"
     return query
-
-
+                    
 
 
 def greet ():
@@ -79,6 +81,8 @@ if __name__ == '__main__':
 
     while True:
         query = takeCommand().lower()
+        
+        
         if "wikipedia" in query:
             try:    
                     speak("Searching Wikipedia...")
@@ -89,7 +93,6 @@ if __name__ == '__main__':
                     speak("Wikipedia say's, "+results)
             except Exception as e:
                 speak("Sorry, but that's an invalid search query !")
-
 
         elif "open gsmarena" in query or "gsmarena" in query:
             openInChrome("gsmarena.com")
@@ -111,17 +114,19 @@ if __name__ == '__main__':
             
         elif "open android studio" in query or "android studio" in query:
             open("android studio")
-
-
-        elif "open android studio" in query or "android studio" in query:
-            open("android studio")
-
-
-
-
         
         elif "time" in query:
             propertime = "The Time Is,"+str(time.strftime('%H'))+"Hours and"+str(time.strftime('%M'))+"Minutes" 
             system("cls")
             print(str(time.strftime('%H:%M')))
             speak(propertime)
+            
+            
+            
+        elif "search google for" in query:
+            searchQuery = query.replace("search", "",1)
+            searchQuery = searchQuery.replace("google", "",1)
+            searchQuery = searchQuery.replace("for", "",1)
+            print(searchQuery)
+            speak(f"Showing Results For - {searchQuery}")
+            openInChrome(url := f"https://www.google.com/search?q={searchQuery}")
