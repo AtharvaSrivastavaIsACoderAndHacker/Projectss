@@ -7,7 +7,7 @@ system("cls")
 query = input('Enter The Product To Scrape : ')
 url = f"https://www.amazon.in/s?k={query}"
 response = requests.get(url)
-html = response.text
+html = response.text 
 soup = BeautifulSoup(html, "html.parser")
 
 
