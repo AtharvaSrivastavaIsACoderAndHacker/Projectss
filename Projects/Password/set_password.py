@@ -9,3 +9,6 @@ if attempt == password:
 else:
     print("Galat Password !!! Bhag ja yahan se")
     exit();
+    
+    
+# By Atharva Srivastava

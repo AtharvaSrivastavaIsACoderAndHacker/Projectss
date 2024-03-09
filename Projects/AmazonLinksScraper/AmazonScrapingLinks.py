@@ -17,5 +17,5 @@ for link in soup.findAll('a'):
       if linkhref != None:
             if "/dp/" in linkhref:
                   links.append(link.get("href"))
-                  
+                   
 print(links)
