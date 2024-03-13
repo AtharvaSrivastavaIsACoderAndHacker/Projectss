@@ -2,7 +2,6 @@
 
 import cv2
 import mediapipe
-import time
 import pyautogui
 from os import system
 
@@ -39,13 +38,10 @@ while True:
                 
                 id_x_y.append([id,Sx,Sy])                
                 id_x_y_HasLandmarks = True
-                if id == 4 or id == 8:
-                    cv2.circle(frame,(Sx,Sy),8,(255,0,0),cv2.FILLED)
      
     count+=1    
     
     if id_x_y_HasLandmarks:
-        thumbLength_x = abs(id_x_y[0][1] - id_x_y[4][1])
         indexLength_y = abs(id_x_y[0][2] - id_x_y[8][2])
         middleLength_y = abs(id_x_y[0][2] - id_x_y[12][2])
         ringLength_y = abs(id_x_y[0][2] - id_x_y[16][2])
@@ -69,13 +65,13 @@ while True:
         match(countOfFingers):
             case 0:
                 if count%15 == 0:
-                    hit('k')
+                    pyautogui.keyDown('k')
             case 1:
                 if count%15 == 0:
-                    hit('left')
+                    pyautogui.keyDown('left')
             case 2:
                 if count%15 == 0:
-                    hit('right')
+                    pyautogui.keyDown('right')
             case 3:
                 pyautogui.press('volumeup')
             case 4:
