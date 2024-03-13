@@ -11,12 +11,6 @@ mpHands =  mediapipe.solutions.hands
 Hands = mpHands.Hands()
 mpDraw = mediapipe.solutions.drawing_utils
 
-
-def hit(key):
-    pyautogui.keyDown(key)
-    return
-
-
 count = 0
 system("cls")
 while True:
