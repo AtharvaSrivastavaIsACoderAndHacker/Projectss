@@ -1,0 +1,13 @@
+CodeWithHarry a coder/coding instructor on YouTube, did a project : SnakeGame in Vanilla JS
+
+He provides Source Code On his website, so I took it from there and Edited It To Give Him Proper Credits !
+
+I Deployed That SnakeGame Implementation Code Using Free Plan Of 000freewebhost.com !
+
+I have given proper credits !
+
+I have also made my own (completely coded myself) SnakeGame in Python Pygame BTW, you can find it on my GitHub !
+
+https://snakemaniacodewithharry.000webhostapp.com/ --> is the URL to the deployed website
+
+Pls don't use this website much coz if my free plan's limits are touched, it'll expire !
