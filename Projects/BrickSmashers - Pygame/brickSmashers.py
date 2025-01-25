@@ -89,10 +89,12 @@ def main():
             for brick in bricks:
                 if brick.colliderect(pygame.Rect(ballX - 5, ballY - 5, 10, 10)):
                         bricks.remove(brick)
-                        Right = not(Right)
-                        Left = not(Left)
-                        Down = not(Down)
-                        Up = not(Up)
+                        if abs(ballX - brick.left) <= 5 or abs(ballX - brick.right) <= 5:
+                            Right = not Right
+                            Left = not Left
+                        elif abs(ballY - brick.top) <= 5 or abs(ballY - brick.bottom) <= 5:
+                            Up = not Up
+                            Down = not Down
                 else:
                     pygame.draw.rect(gameWindow, (0,0,0), brick)
 
