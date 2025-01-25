@@ -53,7 +53,7 @@ def main():
                     
             gameWindow.fill((255,255,255))
             pygame.draw.circle(gameWindow, (0,0,0), (ballX,ballY),10)
-            if not(ballY>=window_y+window_height):
+            if not(ballY+10>=window_y+window_height):
                 ballY += gravity
                 velocity-=0.01
             
@@ -90,15 +90,19 @@ def main():
             if ballY<=window_y:
                 Down = True
                 Up = False
+                velocity-=0.001
             if ballY>=window_y+window_height:
                 Up = True
                 Down = False
+                velocity-=0.001
             if ballX<=window_x:
                 Right = True
                 Left = False
+                velocity-=0.001
             if ballX>=window_x+window_width:
                 Left = True
                 Right = False
+                velocity-=0.001
                           
             
             
