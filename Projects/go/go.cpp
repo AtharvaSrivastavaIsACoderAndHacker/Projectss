@@ -49,6 +49,9 @@ std::vector<std::pair<std::string, std::string>> getAliases(std::string path){
 
 int main(int argc, char const *argv[]) {
 
+    if(argc == 1){
+        return 0;
+    }
     
     if(!fileExists("Dependencies\\goAliasesFile.txt")){
         std::fstream file;
@@ -86,8 +89,9 @@ int main(int argc, char const *argv[]) {
     if (argc > 1) {
         auto it = std::find_if(aliases.begin(), aliases.end(),[&](const std::pair<std::string, std::string>& alias) {return alias.first == std::string(argv[1]);});
         if(it!=aliases.end()){
-            std::string cmd = "start powershell.exe /K \"cd /d " + it->second + "\"";
+            std::string cmd = "start powershell -NoExit -Command \"cd \'" + it->second + "\'\"";
             system(cmd.c_str());
+            // std::cout<<cmd;
         }
     }
 
