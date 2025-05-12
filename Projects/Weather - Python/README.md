@@ -29,6 +29,6 @@ pip install pygame geocoder requests
 ```
 
 ## 🧰 Requirements (If running via executable)
-- just have a windows pc, if not use emulator
+- just have a windows pc, if not, use emulator
 - run the .exe inside of the folder with it's corresponding dependencies
 - it can be run natively without python (pyinstaller)
