@@ -143,7 +143,7 @@ from IPython.display import clear_output
 import time
 
 client = Groq(
-    api_key=("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"),
+    api_key=("enterUrOwn"),
 )
 def main_menu():
     while True:
