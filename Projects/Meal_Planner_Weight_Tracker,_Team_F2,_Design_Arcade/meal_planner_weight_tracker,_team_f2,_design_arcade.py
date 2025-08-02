@@ -88,7 +88,7 @@ def get_latest_tracker_data(trackerData, target_username):
 
 def meal_planning():
     client = Groq(
-      api_key=("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"),
+      api_key=("enterUrOwn"),
     )
     matched_user_tuple = next((u for u in users if u[0] == user), None)
     msg = input("Enter any on the spot instructions or messages, you can enter your goals also, for generating the meal plan (use simple english) : ")
