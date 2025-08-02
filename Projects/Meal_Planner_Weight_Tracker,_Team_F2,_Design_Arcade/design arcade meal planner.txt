@@ -1,0 +1,36 @@
+User Management@
+
+Create/delete user profiles@
+
+Store attributes: age, gender, height, weight@
+
+
+
+
+
+
+
+
+
+Meal Planning 111111111111111111111
+
+Generate daily/weekly meal plans based on:
+
+Caloric/macro needs
+
+
+
+
+
+
+
+
+
+
+Progress Tracking @
+
+Log weight and measurements @
+
+Show graphs/stats of progress over time (could use ASCII art for CLI) 
+
+BMI
