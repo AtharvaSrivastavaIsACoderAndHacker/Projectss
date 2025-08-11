@@ -5,6 +5,16 @@
 #include<vector>
 #include<algorithm>
 #include <cstdlib>
+#include <windows.h>
+
+std::string getExeDir() {
+    char path[MAX_PATH];
+    GetModuleFileNameA(NULL, path, MAX_PATH);
+    std::string exePath(path);
+    size_t pos = exePath.find_last_of("\\/");
+    return exePath.substr(0, pos);
+}
+
 
 bool pathExists(const std::string& path) {
     struct stat info;
@@ -53,13 +63,15 @@ int main(int argc, char const *argv[]) {
         return 0;
     }
     
-    if(!fileExists("Dependencies\\goAliasesFile.txt")){
+    std::string rel = getExeDir() + "\\Dependencies\\goAliasesFile.txt";
+
+    if(!fileExists(rel)){
         std::fstream file;
-        file.open("Dependencies\\goAliasesFile.txt", std::ios::in | std::ios::out);
+        file.open(rel, std::ios::in | std::ios::out);
         file.close();
     }
     
-    std::vector<std::pair<std::string, std::string>> aliases = getAliases("Dependencies\\goAliasesFile.txt");
+    std::vector<std::pair<std::string, std::string>> aliases = getAliases(rel);
     
     if (argc > 1 && std::string(argv[1]) == "alias") {
         if (argc < 4) {
@@ -72,7 +84,7 @@ int main(int argc, char const *argv[]) {
                 auto it = std::find_if(aliases.begin(), aliases.end(),[&](const std::pair<std::string, std::string>& alias) {return alias.first == std::string(argv[2]);});
                 if(it==aliases.end()){
                     std::fstream file;
-                    file.open("Dependencies\\goAliasesFile.txt", std::ios::in | std::ios::out | std::ios::app);
+                    file.open(rel, std::ios::in | std::ios::out | std::ios::app);
                     file<<"\n"<<std::string(argv[2])<<" "<<std::string(argv[3]);
                     file.close();
                 }
