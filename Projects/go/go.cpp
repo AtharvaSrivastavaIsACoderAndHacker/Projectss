@@ -80,7 +80,7 @@ int main(int argc, char const *argv[]) {
         }
         else{
             std::string path = normalizePath(std::string(argv[3]));
-            if(pathExists(path)){
+
                 auto it = std::find_if(aliases.begin(), aliases.end(),[&](const std::pair<std::string, std::string>& alias) {return alias.first == std::string(argv[2]);});
                 if(it==aliases.end()){
                     std::fstream file;
@@ -91,17 +91,17 @@ int main(int argc, char const *argv[]) {
                 else{
                     std::cerr << "alias exists ! duplicate alias names not allowed !" << std::endl;
                 }
-            }
-            else{
-                std::cerr << "provided path doesn't exist !" << std::endl;
-            }
         }
     }
     
     if (argc > 1) {
         auto it = std::find_if(aliases.begin(), aliases.end(),[&](const std::pair<std::string, std::string>& alias) {return alias.first == std::string(argv[1]);});
         if(it!=aliases.end()){
-            std::string cmd = "start powershell -NoExit -Command \"cd \'" + it->second + "\'\"";
+            std::string path = it->second;
+            std::replace(path.begin(), path.end(), '/', '\\');
+            std::string cmd = "start \"\" powershell -NoExit -Command \"cd \\\"" + path + "\\\"\"";
+
+
             system(cmd.c_str());
             // std::cout<<cmd;
         }
