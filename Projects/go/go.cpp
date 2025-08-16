@@ -76,10 +76,13 @@ int main(int argc, char const *argv[]) {
 
                 auto it = std::find_if(aliases.begin(), aliases.end(),[&](const std::pair<std::string, std::string>& alias) {return alias.first == std::string(argv[2]);});
                 if(it==aliases.end()){
-                    std::fstream file;
-                    file.open(rel, std::ios::in | std::ios::out | std::ios::app);
-                    if (file.tellp() > 0) file << "\n";
-                    file<<std::string(argv[2])<<" "<<std::string(argv[3]);
+                    std::fstream file(rel, std::ios::in | std::ios::out | std::ios::app);
+
+                    file.seekg(0, std::ios::end);
+                    bool hasContent = file.tellg() > 0;
+
+                    if (hasContent) file << "\n";
+                    file << argv[2] << " " << argv[3];
                     file.close();
                 }
                 else{
