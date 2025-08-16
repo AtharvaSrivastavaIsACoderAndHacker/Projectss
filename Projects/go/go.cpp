@@ -15,7 +15,6 @@ std::string getExeDir() {
     return exePath.substr(0, pos);
 }
 
-
 bool pathExists(const std::string& path) {
     struct stat info;
     if (stat(path.c_str(), &info) != 0) {
@@ -37,25 +36,19 @@ bool fileExists(const std::string& filename) {
     return file.good();
 }
 
-std::vector<std::pair<std::string, std::string>> getAliases(std::string path){
-    std::fstream file;
-    file.open(path, std::ios::in);
-    std::vector<std::pair<std::string, std::string>> aliases = {};
+std::vector<std::pair<std::string, std::string>> getAliases(const std::string& path) {
+    std::ifstream file(path);
+    std::vector<std::pair<std::string, std::string>> aliases;
     std::string str1, str2;
-    while(!file.eof()){
-        file>>str1>>str2;
-        if(std::string(str1) != "" && std::string(str2) != ""){
-            std::pair<std::string, std::string> p = {str1,str2};
-            aliases.push_back(p);
+
+    while (file >> str1 >> str2) {
+        if (!str1.empty() && !str2.empty()) {
+            aliases.emplace_back(str1, str2);
         }
-        getline(file, str2);
+        file.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-    file.close();
-    
     return aliases;
 }
-
-
 
 int main(int argc, char const *argv[]) {
 
@@ -67,7 +60,7 @@ int main(int argc, char const *argv[]) {
 
     if(!fileExists(rel)){
         std::fstream file;
-        file.open(rel, std::ios::in | std::ios::out);
+        file.open(rel, std::ios::out | std::ios::app);
         file.close();
     }
     
@@ -85,7 +78,8 @@ int main(int argc, char const *argv[]) {
                 if(it==aliases.end()){
                     std::fstream file;
                     file.open(rel, std::ios::in | std::ios::out | std::ios::app);
-                    file<<"\n"<<std::string(argv[2])<<" "<<std::string(argv[3]);
+                    if (file.tellp() > 0) file << "\n";
+                    file<<std::string(argv[2])<<" "<<std::string(argv[3]);
                     file.close();
                 }
                 else{
