@@ -4,8 +4,9 @@
 #include<sys/stat.h>
 #include<vector>
 #include<algorithm>
-#include <cstdlib>
-#include <windows.h>
+#include<cstdlib>
+#include<windows.h>
+#include<unistd.h>
 
 std::string getExeDir() {
     char path[MAX_PATH];
@@ -52,10 +53,17 @@ std::vector<std::pair<std::string, std::string>> getAliases(const std::string& p
 
 int main(int argc, char const *argv[]) {
 
+    
+    char cwd[512];
+    getcwd(cwd, sizeof(cwd)); // getting cwd
+    struct stat sb;
+    strcat(cwd,"\\Dependencies"); // constructing path
+    if (stat(cwd, &sb) != 0) CreateDirectoryA(cwd, NULL); // create dir if it doesn't exist !
+    
     if(argc == 1){
         return 0;
     }
-    
+
     std::string rel = getExeDir() + "\\Dependencies\\goAliasesFile.txt";
 
     if(!fileExists(rel)){
