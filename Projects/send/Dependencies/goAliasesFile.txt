@@ -1,0 +1,2 @@
+des %USERPROFILE%\Desktop
+down %USERPROFILE%\Downloads
