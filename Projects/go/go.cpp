@@ -54,11 +54,13 @@ std::vector<std::pair<std::string, std::string>> getAliases(const std::string& p
 int main(int argc, char const *argv[]) {
 
     
-    char cwd[512];
-    getcwd(cwd, sizeof(cwd)); // getting cwd
+    char executablePath[512];
+    strcpy(executablePath, getExeDir().c_str());
+    strcat(executablePath,"\\Dependencies"); // constructing path
     struct stat sb;
-    strcat(cwd,"\\Dependencies"); // constructing path
-    if (stat(cwd, &sb) != 0) CreateDirectoryA(cwd, NULL); // create dir if it doesn't exist !
+    if (stat(executablePath, &sb) != 0) CreateDirectoryA(executablePath, NULL); // create dir if it doesn't exist !
+    
+
     
     if(argc == 1){
         return 0;
