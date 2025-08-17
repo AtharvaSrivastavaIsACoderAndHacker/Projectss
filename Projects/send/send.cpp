@@ -195,7 +195,7 @@ int main(int argc, char const *argv[]) {
         return 0;
     }
     
-    string rel = getExeDir() + "\\Dependencies\\goAliasesFile.txt";
+    string rel = getExeDir() + "\\Dependencies\\sendAliasesFile.txt";
 
     if(!fileExists(rel)){
         std::fstream file;
