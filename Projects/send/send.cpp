@@ -7,6 +7,7 @@
 #include<cstdlib>
 #include<windows.h>
 #include<unistd.h>
+#include <limits>
 #include<ctime>
 #include"picosha2.h"
 #include <windows.h>

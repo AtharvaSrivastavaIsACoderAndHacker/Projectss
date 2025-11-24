@@ -7,6 +7,8 @@
 #include<cstdlib>
 #include<windows.h>
 #include<unistd.h>
+#include <limits>
+
 
 std::string getExeDir() {
     char path[MAX_PATH];
